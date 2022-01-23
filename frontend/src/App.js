@@ -1,24 +1,28 @@
 import './App.css';
-import { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-class App extends Component {
-  state = {users: []}
+function App() {
+  const [users, setUsers] = useState("taco")
 
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
+  useEffect(async () => {
+    const fetchData = async () => {
+      let result = await axios("/users");
+      setUsers(result.data);
+    };
+    
+    fetchData();
+  }, [])
   
-  render() {
-    return (
-    <div className="App">
-      <p>yes</p>
-      {/* {this.state.users.map(user =>
-        <div>{user.message}</div>)} */}
-      <p>{this.state.users[0]} {this.state.users[1]}</p>
-    </div>
-  )};
+  return (
+  <div className="App">
+    <p>yes</p>
+    {/* {users.map(user =>
+      <div>{user.message}</div>)} */}
+    <p>{users}</p>
+
+  </div>
+  );
 }
 
 export default App;
