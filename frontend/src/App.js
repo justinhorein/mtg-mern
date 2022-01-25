@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [users, setUsers] = useState("taco")
+  const [cards, setCards] = useState("taco")
 
-  useEffect(async () => {
+  useEffect(() => {
     const fetchData = async () => {
-      let result = await axios("/users");
-      setUsers(result.data);
+      let result = await axios("/deck");
+      setCards(result.data);
     };
     
     fetchData();
@@ -19,7 +19,7 @@ function App() {
     <p>yes</p>
     {/* {users.map(user =>
       <div>{user.message}</div>)} */}
-    <p>{users}</p>
+    <img src={cards[0].img}></img>
 
   </div>
   );
