@@ -24,7 +24,8 @@ router.get('/deck', function(req, res, next) {
 
     // console.log(db);
     getCards(db, (deck) => {
-      console.log(deck);
+      // console.log(deck);
+      // let cards = Object.entries(deck);
       res.json(
         deck
       )
