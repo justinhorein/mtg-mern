@@ -13,16 +13,16 @@ function App() {
   return (
   <div className="App">
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Deck</Link>
-          </li>
-          <li>
-            <Link to="/search">Search</Link>
-          </li>
-        </ul>
-      </div>
+
+    <ul>
+      <li>
+        <Link class="link" to="/">Deck</Link>
+      </li>
+      <li>
+        <Link class="link" to="/search">Search</Link>
+      </li>
+    </ul>
+
       <Routes>
         <Route path="/" element={<Deck/>}/>
         <Route path="/search" element={<Search/>}/>
@@ -49,7 +49,7 @@ function Deck() {
 
   return (
     <div>
-      <div>Deck</div>
+      <div class="heading">Deck</div>
 
       {cards.map((element) => (
         <img key={element[1].id} src={element[1].img}></img>
@@ -61,7 +61,7 @@ function Deck() {
 
 const Search = () => (
   <div>
-    <h1>Search</h1>
+    <div class="heading">Search</div>
   </div>
 )
 
