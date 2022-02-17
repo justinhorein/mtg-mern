@@ -33,5 +33,23 @@ li .link {
 
 .heading {
   font-size: 32px;
+  color: white;
+  -webkit-text-stroke: .4px black;
 }
 
+/* Search Page */
+
+.search-box {
+  height: 150px;
+  width: 500px;
+  background-color: lightgrey;
+  border-radius: 2px;
+  margin: 20px auto;
+}
+
+.search-input {
+  margin: 20px;
+  width: 300px;
+  height: 30px;
+  text-align: center;
+}

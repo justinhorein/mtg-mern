@@ -61,7 +61,11 @@ function Deck() {
 
 const Search = () => (
   <div>
-    <div class="heading">Search</div>
+    
+    <div class="search-box">
+      <div class="heading">Search</div>
+      <input class="search-input" type="text" placeholder="Wrath of God"></input>
+    </div>
   </div>
 )
 
