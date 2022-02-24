@@ -31,7 +31,19 @@ li .link {
   text-decoration: none;
 }
 
+.card {
+  width: 340px;
+  margin: 10px;
+}
+
 .heading {
+  font-size: 32px;
+  color: black;
+  margin: 10px;
+}
+
+
+.heading2 {
   font-size: 32px;
   color: white;
   -webkit-text-stroke: .4px black;
@@ -52,4 +64,9 @@ li .link {
   width: 300px;
   height: 30px;
   text-align: center;
+}
+
+button.search {
+  padding: 8px 10px;
+  font-size: 14px;
 }

@@ -52,21 +52,58 @@ function Deck() {
       <div class="heading">Deck</div>
 
       {cards.map((element) => (
-        <img key={element[1].id} src={element[1].img}></img>
+        <img class="card" key={element[1].id} src={element[1].img}></img>
       ))
       }
     </div>
   )
 }
 
-const Search = () => (
-  <div>
-    
-    <div class="search-box">
-      <div class="heading">Search</div>
-      <input class="search-input" type="text" placeholder="Wrath of God"></input>
+
+
+const Search = () => {
+  const initialFormData = Object.freeze({
+    search: ""
+  });
+
+  const [formData, updateFormData] = React.useState(initialFormData);
+
+  const handleChange = (e) => {
+    updateFormData({
+      ...formData,
+
+      // Trimming any whitespace
+      [e.target.name]: e.target.value.trim()
+    });
+  };
+
+  const searchCard = (e) => {
+    e.preventDefault();
+    // console.log(formData["search"]);
+
+    let string = "https://api.scryfall.com/cards/search?q=" + formData["search"]
+
+    fetch(string)
+      .then(res => res.json())
+      .then(
+        (result => {
+          let card = result["data"][0];
+          console.log(card.uri);
+        })
+      )
+  }
+
+  return (
+    <div>
+      <div class="search-box">
+        <div class="heading2">Search</div>
+        <input class="search-input" type="text" placeholder="Wrath of God" name="search" onChange={handleChange}></input>
+        <button class="search" onClick={searchCard}>Search</button>
+      </div>
     </div>
-  </div>
-)
+  )
+  
+}
+
 
 export default App;
