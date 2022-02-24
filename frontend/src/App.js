@@ -78,17 +78,35 @@ const Search = () => {
   };
 
   const searchCard = (e) => {
+    // Prevent Refresh
     e.preventDefault();
-    // console.log(formData["search"]);
+     
+    // delete previous search
+    let previous = document.querySelectorAll('img');
+   
+    previous.forEach((one) => {
+      one.remove();
+    })
 
+    // execute new search and render each card image
     let string = "https://api.scryfall.com/cards/search?q=" + formData["search"]
 
     fetch(string)
       .then(res => res.json())
       .then(
         (result => {
-          let card = result["data"][0];
-          console.log(card.uri);
+          let cards = result["data"];
+          
+          cards.forEach((one) => {
+            let image = one.image_uris.normal;
+            // console.log(image);
+
+
+            let card = document.createElement('img');
+            card.src = image;
+            document.querySelector('.App').append(card);
+          })
+
         })
       )
   }
