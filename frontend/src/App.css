@@ -73,11 +73,16 @@ button.search {
 
 .search-card {
   z-index: 50;
+  margin: 10px;
+}
+.search-container {
+  display: inline-block;
 }
 
-/* .search-card:hover {
-  display: none;
-} */
+.search-container:hover {
+  margin-right: -100px;
+  margin-bottom: -100px;
+}
 
 .card-add {
   z-index: 50;
@@ -85,4 +90,7 @@ button.search {
   height: 50px;
   border-radius: 2px;
   transform: translate(-300px, -450px);
+  margin: 0px;
 }
+
+

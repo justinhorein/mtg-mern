@@ -77,6 +77,22 @@ const Search = () => {
     });
   };
 
+  const addButton = (e) => {
+    // console.log("button added");
+    let b = document.createElement('button');
+    b.className = "card-add";
+    b.innerText = "add";
+
+    e.target.append(b);
+  }
+
+  const removeButton = (e) => {
+    // console.log('button removed');
+    let cont = e.target;
+    // console.log(cont);
+    cont.lastChild.remove();
+  }
+
   const searchCard = (e) => {
     // Prevent Refresh
     e.preventDefault();
@@ -102,22 +118,22 @@ const Search = () => {
               let image = one.image_uris.normal;
               // console.log(image);
   
-      
-  
               // Card
               let card = document.createElement('img');
               card.src = image;
               card.className = "search-card";
   
-              let button = document.createElement('button');
-              button.className = "card-add";
-              button.innerText = "add";
+              // let button = document.createElement('button');
+              // button.className = "card-add";
+              // button.innerText = "add";
               
               let container = document.createElement('span');
               container.className = "search-container";
+              container.onmouseenter = addButton;
+              container.onmouseleave = removeButton;
               
               container.appendChild(card);
-              container.appendChild(button);
+              // container.appendChild(button);
               document.querySelector('.App').append(container);
             })
           } else {
