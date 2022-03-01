@@ -82,7 +82,7 @@ const Search = () => {
     e.preventDefault();
      
     // delete previous search
-    let previous = document.querySelectorAll('img');
+    let previous = document.querySelectorAll('.search-container');
    
     previous.forEach((one) => {
       one.remove();
@@ -97,15 +97,33 @@ const Search = () => {
         (result => {
           let cards = result["data"];
           
-          cards.forEach((one) => {
-            let image = one.image_uris.normal;
-            // console.log(image);
-
-
-            let card = document.createElement('img');
-            card.src = image;
-            document.querySelector('.App').append(card);
-          })
+          if (cards){
+            cards.forEach((one) => {
+              let image = one.image_uris.normal;
+              // console.log(image);
+  
+      
+  
+              // Card
+              let card = document.createElement('img');
+              card.src = image;
+              card.className = "search-card";
+  
+              let button = document.createElement('button');
+              button.className = "card-add";
+              button.innerText = "add";
+              
+              let container = document.createElement('span');
+              container.className = "search-container";
+              
+              container.appendChild(card);
+              container.appendChild(button);
+              document.querySelector('.App').append(container);
+            })
+          } else {
+            alert("Couldn't find a card by that name!");
+          }
+          
 
         })
       )
