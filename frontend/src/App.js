@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link
+  Link, 
 } from "react-router-dom";
 
 function App() {
@@ -32,7 +32,19 @@ function App() {
   );
 }
 
+const clearCards = () => {
+  let previous = document.querySelectorAll('.search-container');
+ 
+  previous.forEach((one) => {
+    one.remove();
+  })
+
+  console.log("clear");
+}
+
 function Deck() {
+  clearCards()
+
   const [cards, setCards] = useState([])
 
   useEffect(() => {
@@ -40,7 +52,7 @@ function Deck() {
       let result = await axios("/deck");
       let deck = result.data;
       deck = Object.entries(deck);
-      console.log(deck);
+      // console.log(deck);
       setCards(deck);
     };
     
@@ -108,11 +120,7 @@ const Search = () => {
     e.preventDefault();
      
     // delete previous search
-    let previous = document.querySelectorAll('.search-container');
-   
-    previous.forEach((one) => {
-      one.remove();
-    })
+    clearCards();
 
     // execute new search and render each card image
     let string = "https://api.scryfall.com/cards/search?q=" + formData["search"]
