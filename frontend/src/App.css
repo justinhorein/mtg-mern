@@ -68,29 +68,56 @@ li .link {
 
 button.search {
   padding: 8px 10px;
+  margin: 0px;
   font-size: 14px;
 }
 
 .search-card {
   z-index: 50;
-  margin: 10px;
+  /* margin: 10px; */
 }
 .search-container {
-  display: inline-block;
+  display: inline;
+  margin: 5px;
 }
 
 .search-container:hover {
-  margin-right: -100px;
+  width: 508px;
+  height: 700px;
+  margin-right: -97px;
+}
+
+.button-box {
+  background-color: rgba(110, 110, 110, 0.822);
+  border: 1px solid black;
+  border-radius: 2px;
+  display: inline-block;
+  align-content: center;
+  width: 150px;
+  height: 80px;
+  transform: translate(-320px, -480px);
+  margin: 0px;
+  margin-right: -50px;
   margin-bottom: -100px;
 }
 
+.card-number {
+  display: inline;
+  height: 20px;
+  width: 10px;
+  transform: translate(0px, 10px);
+  
+}
+
 .card-add {
+  display: inline;
   z-index: 50;
   width: 100px;
   height: 50px;
   border-radius: 2px;
-  transform: translate(-300px, -450px);
+  /* transform: translate(-300px, -450px); */
   margin: 0px;
+  /* margin-right: -100px; */
+  transform: translate(3px, 10px);
 }
-
 

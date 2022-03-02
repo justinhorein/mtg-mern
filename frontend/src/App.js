@@ -83,7 +83,17 @@ const Search = () => {
     b.className = "card-add";
     b.innerText = "add";
 
-    e.target.append(b);
+    let i = document.createElement("input");
+    i.type = "text";
+    i.className = "card-number"
+      
+    let c = document.createElement("p");
+    c.className = "button-box";
+    
+    c.append(i);
+    c.append(b);
+    
+    e.target.append(c);
   }
 
   const removeButton = (e) => {
