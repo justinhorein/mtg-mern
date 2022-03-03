@@ -7,6 +7,7 @@ import {
   Routes,
   Link, 
 } from "react-router-dom";
+import * as reactDOM from 'react-dom';
 
 function App() {
   
@@ -90,28 +91,29 @@ const Search = () => {
   };
 
   const addButton = (e) => {
-    // console.log("button added");
-    let b = document.createElement('button');
-    b.className = "card-add";
-    b.innerText = "add";
-
-    let i = document.createElement("input");
-    i.type = "text";
-    i.className = "card-number"
       
     let c = document.createElement("p");
-    c.className = "button-box";
-    
-    c.append(i);
-    c.append(b);
+    c.className = "proxy";
     
     e.target.append(c);
+
+    const addCard = () => {
+      console.log("taco");
+    }
+
+    let buttonBox = (
+      <p class="button-box">
+        <input type="text" className="card-number"></input>
+        <button className="card-add" onClick={addCard}>add</button>
+      </p>
+    )
+
+    reactDOM.hydrate(buttonBox, document.querySelector('.proxy'));
   }
 
   const removeButton = (e) => {
-    // console.log('button removed');
     let cont = e.target;
-    // console.log(cont);
+
     cont.lastChild.remove();
   }
 

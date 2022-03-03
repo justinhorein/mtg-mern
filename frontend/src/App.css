@@ -77,14 +77,21 @@ button.search {
   /* margin: 10px; */
 }
 .search-container {
-  display: inline;
-  margin: 5px;
+  display: block;
+  margin: auto;
+  /* margin-bottom: 10px; */
 }
 
 .search-container:hover {
   width: 508px;
   height: 700px;
-  margin-right: -97px;
+  /* margin-right: -97px; */
+}
+
+.proxy {
+  height: 0px;
+  width: 0px;
+  margin: 0px;
 }
 
 .button-box {
@@ -95,7 +102,7 @@ button.search {
   align-content: center;
   width: 150px;
   height: 80px;
-  transform: translate(-320px, -480px);
+  transform: translate(170px, -500px);
   margin: 0px;
   margin-right: -50px;
   margin-bottom: -100px;
@@ -106,7 +113,7 @@ button.search {
   height: 20px;
   width: 10px;
   transform: translate(0px, 10px);
-  
+  margin-bottom: 0px;
 }
 
 .card-add {
@@ -115,9 +122,7 @@ button.search {
   width: 100px;
   height: 50px;
   border-radius: 2px;
-  /* transform: translate(-300px, -450px); */
   margin: 0px;
-  /* margin-right: -100px; */
   transform: translate(3px, 10px);
 }
 
