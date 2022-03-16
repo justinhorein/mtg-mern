@@ -154,7 +154,7 @@ const Search = () => {
               
               container.appendChild(card);
               // container.appendChild(button);
-              document.querySelector('.App').append(container);
+              document.querySelector('.card-mat').append(container);
             })
           } else {
             alert("Couldn't find a card by that name!");
@@ -171,6 +171,9 @@ const Search = () => {
         <div class="heading2">Search</div>
         <input class="search-input" type="text" placeholder="Wrath of God" name="search" onChange={handleChange}></input>
         <button class="search" onClick={searchCard}>Search</button>
+      </div>
+      <div class="card-mat">
+
       </div>
     </div>
   )

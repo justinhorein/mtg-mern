@@ -78,14 +78,12 @@ button.search {
 }
 .search-container {
   display: block;
-  margin: auto;
+  margin: 10px;
   /* margin-bottom: 10px; */
 }
 
-.search-container:hover {
-  width: 508px;
-  height: 700px;
-  /* margin-right: -97px; */
+.search-container img {
+  width: 340px;
 }
 
 .proxy {
@@ -124,5 +122,11 @@ button.search {
   border-radius: 2px;
   margin: 0px;
   transform: translate(3px, 10px);
+}
+
+.card-mat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
