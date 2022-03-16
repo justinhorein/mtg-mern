@@ -6,6 +6,7 @@ import {
   Route,
   Routes,
   Link, 
+  useNavigate,
 } from "react-router-dom";
 import * as reactDOM from 'react-dom';
 
@@ -90,6 +91,8 @@ const Search = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const addButton = (e) => {
       
     let c = document.createElement("p");
@@ -99,7 +102,24 @@ const Search = () => {
 
     const addCard = () => {
       console.log("taco");
-    }
+      const taco = {'taco': 4};
+
+      // axios.post('http://localhost:3001/add', {'taco': 4})
+      // .then(() => {
+      //     console.log("success");
+      //     // programatic navigation
+      //     navigate("/")
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // });
+
+      fetch('http://localhost:3001/add',{
+        method: "post",
+        data: taco
+      })
+
+    };
 
     let buttonBox = (
       <p class="button-box">

@@ -37,4 +37,25 @@ router.get('/deck', function(req, res, next) {
   // )
 });
 
+router.post('/add', function(req, res, next) {
+
+  console.log("wheeeereee");
+  console.log(req);
+
+  
+  // MongoClient.connect("mongodb://localhost:27017", (err, db) => {
+  //   if (err) {
+  //     console.log("error!");
+  //   }
+
+
+  //   // Add Card to deck
+  //   console.log("Card added!");
+  // })
+
+  // return(res.json(
+  //   req
+  // ))
+})
+
 module.exports = router;
