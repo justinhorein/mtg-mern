@@ -20,7 +20,7 @@ function App() {
         <Link class="link" to="/">Deck</Link>
       </li>
       <li>
-        <Link class="link" to="/search">Search</Link>
+        <Link class="link" to="/search" onClick={clearCards}>Search</Link>
       </li>
     </ul>
 
@@ -44,8 +44,6 @@ const clearCards = () => {
 }
 
 function Deck() {
-  clearCards()
-
   const [cards, setCards] = useState([])
 
   useEffect(() => {
@@ -75,6 +73,8 @@ function Deck() {
 
 
 const Search = () => {
+  clearCards()
+
   const initialFormData = Object.freeze({
     search: ""
   });
