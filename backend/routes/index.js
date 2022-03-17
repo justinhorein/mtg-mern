@@ -3,6 +3,9 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var url = "mongodb://localhost:27017";
+const { appendFile } = require('fs');
+
+
 
 function getCards(db, callback) {
   let dbo = db.db("cards");
@@ -40,7 +43,7 @@ router.get('/deck', function(req, res, next) {
 router.post('/add', function(req, res, next) {
 
   console.log("wheeeereee");
-  console.log(req);
+  console.log(req.body);
 
   
   // MongoClient.connect("mongodb://localhost:27017", (err, db) => {

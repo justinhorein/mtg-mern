@@ -9,6 +9,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import * as reactDOM from 'react-dom';
+// import nfetch from 'node-fetch';
 
 function App() {
   
@@ -101,8 +102,9 @@ const Search = () => {
     e.target.append(c);
 
     const addCard = () => {
-      console.log("taco");
+      
       const taco = {'taco': 4};
+      console.log(taco);
 
       // axios.post('http://localhost:3001/add', {'taco': 4})
       // .then(() => {
@@ -115,8 +117,12 @@ const Search = () => {
       // });
 
       fetch('http://localhost:3001/add',{
-        method: "post",
-        data: taco
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(taco)
       })
 
     };
