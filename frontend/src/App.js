@@ -101,10 +101,19 @@ const Search = () => {
     
     e.target.append(c);
 
-    const addCard = () => {
+    const addCard = (e) => {
       
       const taco = {'taco': 4};
-      console.log(taco);
+      // console.log(taco);
+      let image = e.target.parentNode.parentNode.parentNode.firstChild.src;
+      let num = e.target.parentNode.firstChild.value;
+
+      let data = {
+        "img": image,
+        "number": num
+      }
+
+      console.log(data);
 
       // axios.post('http://localhost:3001/add', {'taco': 4})
       // .then(() => {
