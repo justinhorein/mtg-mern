@@ -103,8 +103,6 @@ const Search = () => {
 
     const addCard = (e) => {
       
-      const taco = {'taco': 4};
-      // console.log(taco);
       let image = e.target.parentNode.parentNode.parentNode.firstChild.src;
       let num = e.target.parentNode.firstChild.value;
 
@@ -128,10 +126,11 @@ const Search = () => {
       fetch('http://localhost:3001/add',{
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'mode': 'no-cors'
         },
         method: "POST",
-        body: JSON.stringify(taco)
+        body: JSON.stringify(data)
       })
 
     };
