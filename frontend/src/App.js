@@ -94,6 +94,31 @@ const Search = () => {
 
   const navigate = useNavigate();
 
+  const addCard = (e) => {
+      
+    let image = e.target.parentNode.parentNode.parentNode.firstChild.src;
+    let num = e.target.parentNode.firstChild.value;
+
+    let data = {
+      "img": image,
+      "number": num
+    }
+
+    // console.log(data);
+
+    fetch('http://localhost:3001/add',{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'mode': 'no-cors'
+      },
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+
+    navigate("/");
+  };
+
   const addButton = (e) => {
       
     let c = document.createElement("p");
@@ -101,34 +126,9 @@ const Search = () => {
     
     e.target.append(c);
 
-    const addCard = (e) => {
-      
-      let image = e.target.parentNode.parentNode.parentNode.firstChild.src;
-      let num = e.target.parentNode.firstChild.value;
-
-      let data = {
-        "img": image,
-        "number": num
-      }
-
-      // console.log(data);
-
-      fetch('http://localhost:3001/add',{
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'mode': 'no-cors'
-        },
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-
-      navigate("/");
-    };
-
     let buttonBox = (
       <p class="button-box">
-        <input type="text" className="card-number"></input>
+        <input type="text" className="card-number" value="1"></input>
         <button className="card-add" onClick={addCard}>add</button>
       </p>
     )
