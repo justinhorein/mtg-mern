@@ -42,23 +42,26 @@ router.get('/deck', function(req, res, next) {
 
 router.post('/add', function(req, res, next) {
 
-  console.log("wheeeereee");
+  // console.log("wheeeereee");
   console.log(req.body);
+  let card = req.body;
 
   
-  // MongoClient.connect("mongodb://localhost:27017", (err, db) => {
-  //   if (err) {
-  //     console.log("error!");
-  //   }
+  MongoClient.connect("mongodb://localhost:27017", (err, db) => {
+    if (err) {
+      console.log("error!");
+    }
 
 
-  //   // Add Card to deck
-  //   console.log("Card added!");
-  // })
-
-  // return(res.json(
-  //   req
-  // ))
+    // Add Card to deck
+    let dbo = db.db("cards");
+    var collection = dbo.collection("deck-node");
+    collection.insertOne(card, (err, res) => {
+      if (err) throw err;
+      console.log("Card added!");
+      db.close();
+    })
+  })
 })
 
 module.exports = router;

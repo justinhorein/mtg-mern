@@ -42,7 +42,7 @@ const clearCards = () => {
     one.remove();
   })
 
-  console.log("clear");
+  // console.log("clear");
 }
 
 function Deck() {
@@ -111,17 +111,7 @@ const Search = () => {
         "number": num
       }
 
-      console.log(data);
-
-      // axios.post('http://localhost:3001/add', {'taco': 4})
-      // .then(() => {
-      //     console.log("success");
-      //     // programatic navigation
-      //     navigate("/")
-      // })
-      // .catch(err => {
-      //   console.log(err);
-      // });
+      // console.log(data);
 
       fetch('http://localhost:3001/add',{
         headers: {
@@ -133,6 +123,7 @@ const Search = () => {
         body: JSON.stringify(data)
       })
 
+      navigate("/");
     };
 
     let buttonBox = (
