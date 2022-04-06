@@ -9,6 +9,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import * as reactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 // import nfetch from 'node-fetch';
 
 function App() {
@@ -128,6 +129,8 @@ const Search = () => {
 
     let buttonBox = (
       <p class="button-box">
+        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-arrow-down"></i>
         <input type="text" className="card-number" value="1"></input>
         <button className="card-add" onClick={addCard}>add</button>
       </p>
@@ -192,6 +195,8 @@ const Search = () => {
 
   return (
     <div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      {/* <script src="https://use.fontawesome.com/78fabb6acb.js"></script> */}
       <div class="search-box">
         <div class="heading2">Search</div>
         <input class="search-input" type="text" placeholder="Wrath of God" name="search" onChange={handleChange}></input>
