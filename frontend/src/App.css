@@ -130,3 +130,12 @@ button.search {
   justify-content: center;
 }
 
+.fa-arrow-up {
+  color: red;
+  transform: translate(2px, 2px);
+}
+
+.fa-arrow-down {
+  color: blue;
+  transform: translate(-10px, 20px);
+}
