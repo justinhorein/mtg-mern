@@ -73,6 +73,23 @@ function Deck() {
   )
 }
 
+const increment = () => {
+  // console.log("increment");
+  let num = document.querySelector(".card-number");
+  let val = parseInt(num.value);
+  if (val < 4){
+    num.value = val + 1;
+  }
+}
+
+const decrement = () => {
+  console.log("decrement")
+  let num = document.querySelector(".card-number");
+  let val = parseInt(num.value);
+  if (val > 1){
+    num.value = val - 1;
+  }
+}
 
 
 const Search = () => {
@@ -129,8 +146,8 @@ const Search = () => {
 
     let buttonBox = (
       <p class="button-box">
-        <i class="fa-solid fa-arrow-up"></i>
-        <i class="fa-solid fa-arrow-down"></i>
+        <i class="fa-solid fa-arrow-up" onClick={increment}></i>
+        <i class="fa-solid fa-arrow-down" onClick={decrement}></i>
         <input type="text" className="card-number" value="1"></input>
         <button className="card-add" onClick={addCard}>add</button>
       </p>
