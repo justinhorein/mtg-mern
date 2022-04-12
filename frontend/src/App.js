@@ -118,7 +118,8 @@ const Search = () => {
   const addCard = (e) => {
       
     let image = e.target.parentNode.parentNode.parentNode.firstChild.src;
-    let num = e.target.parentNode.firstChild.value;
+    let num = e.target.parentNode.childNodes[2].value;
+    console.log(num);
 
     let data = {
       "img": image,
