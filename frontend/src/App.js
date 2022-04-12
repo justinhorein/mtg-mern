@@ -66,7 +66,10 @@ function Deck() {
       <div class="heading">Deck</div>
 
       {cards.map((element) => (
-        <img class="card" key={element[1].id} src={element[1].img}></img>
+        <span class="card-display">
+          <img class="card" key={element[1].id} src={element[1].img}></img>
+          <span class="number-display"># {element[1].number}</span>
+        </span>
       ))
       }
     </div>

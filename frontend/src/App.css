@@ -36,6 +36,29 @@ li .link {
   margin: 10px;
 }
 
+.card-display {
+  display: inline-block;
+
+}
+
+.number-display {
+  position: absolute;
+  width: 30px;
+  font-size: 20px;
+  transform: translate(-340px, 450px);
+  z-index: 100;
+  color: black;
+  background-color: rgb(235, 233, 233);
+  border-radius: 5px;
+  padding: 0px 2px;
+  cursor: default;
+}
+
+.number-display:hover {
+  display: none;
+  cursor: default;
+}
+
 .heading {
   font-size: 32px;
   color: black;
