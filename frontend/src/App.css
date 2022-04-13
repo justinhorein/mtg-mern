@@ -179,6 +179,7 @@ button.search {
 } */
 
 .input-deck {
+  display: none;
   position: absolute;
   width: 7px;
   transform: translate(-12px, 4px);

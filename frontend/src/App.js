@@ -45,63 +45,78 @@ const clearCards = () => {
   })
 }
 
-const incrementDeck = (e) => {
-  // console.log("increment");
-  let num = e.target.parentNode.childNodes[1];
-  console.log(num.value);
-  let val = parseInt(num.value);
-  if (val < 4){
-    num.value = val + 1;
-  }
-
-  if (num.type == "hidden"){
-    num.type = "text";
-    num.value = val;
-  }
-
-  let button = e.target.parentNode.lastChild;
-
-  if (button.type = "hidden"){
-    button.type = "submit";
-    button.value = "Update";
-    let display = e.target.parentNode;
-    console.log(display);
-    display.style.width = "90px";
-  }
-}
-
-const decrementDeck = (e) => {
-  console.log("decrement")
-  let num = e.target.parentNode.childNodes[1];
-  console.log(num.value);
-  let val = parseInt(num.value);
-  if (val > 1){
-    num.value = val - 1;
-  }
-
-  if (num.type == "hidden"){
-    num.type = "text";
-    num.value = val;
-  }
-
-  let button = e.target.parentNode.lastChild;
-
-  if (button.type = "hidden"){
-    button.type = "submit";
-    button.value = "Update";
-    let display = e.target.parentNode;
-    console.log(display);
-    display.style.width = "90px";
-  }
-}
-
  const UpdateForm = (props) => {
 
+    const [num, setNum] = useState(props.element[1].number);
+    
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        alert(`Submitting Name ${num}`)
+    }
+
+    const incrementDeck = (e) => {
+      // console.log("increment");
+      let num = e.target.parentNode.childNodes[1];
+      
+      let val = parseInt(num.value);
+    
+      if (num.style.display != "inline"){
+        num.style.display = "inline";
+        num.value = val;
+      }
+    
+      if (val < 4){
+        num.value = val + 1;
+      }
+    
+      console.log(num.value);
+      setNum(num.value)
+    
+      let button = e.target.parentNode.lastChild;
+    
+      if (button.type = "hidden"){
+        button.type = "submit";
+        button.value = "Update";
+        let display = e.target.parentNode;
+        console.log(display);
+        display.style.width = "90px";
+      }
+    }
+    
+    const decrementDeck = (e) => {
+      console.log("decrement")
+      let num = e.target.parentNode.childNodes[1];
+      
+      let val = parseInt(num.value);
+    
+      if (num.style.display != "inline"){
+        num.style.display = "inline";
+        num.value = val;
+      }
+    
+      if (val > 1){
+        num.value = val - 1;
+      }
+    
+      console.log(num.value);
+      setNum(num.value)
+    
+      let button = e.target.parentNode.lastChild;
+    
+      if (button.type = "hidden"){
+        button.type = "submit";
+        button.value = "Update";
+        let display = e.target.parentNode;
+        console.log(display);
+        display.style.width = "90px";
+      }
+    }
+
     return (
-      <form class="card-display" action="/update" method="POST">
+      <form class="card-display" onSubmit={e => {handleSubmit(e)}}>
           <img class="card" key={props.element[1].id} src={props.element[1].img}></img>
           <span class="number-display">{props.element[1].number}
-            <input class="input-deck" type="hidden" value={props.element[1].number}></input>
+            <input class="input-deck" type="text" value={num}></input>
             <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
             <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
             <input class="hidden-submit" type="hidden"></input>
@@ -131,7 +146,7 @@ function Deck() {
       <div class="heading">Deck</div>
 
         {cards.map((element) => (
-            <UpdateForm element={element} />
+            <UpdateForm element={element} key={element[1].id} />
         ))
         }
     </div>
