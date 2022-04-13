@@ -57,6 +57,16 @@ const incrementDeck = (e) => {
   if (num.type == "hidden"){
     num.type = "text";
   }
+
+  let button = e.target.parentNode.lastChild;
+
+  if (button.type = "hidden"){
+    button.type = "submit";
+    button.value = "Update";
+    let display = e.target.parentNode;
+    console.log(display);
+    display.style.width = "90px";
+  }
 }
 
 const decrementDeck = (e) => {
@@ -70,6 +80,16 @@ const decrementDeck = (e) => {
 
   if (num.type == "hidden"){
     num.type = "text";
+  }
+
+  let button = e.target.parentNode.lastChild;
+
+  if (button.type = "hidden"){
+    button.type = "submit";
+    button.value = "Update";
+    let display = e.target.parentNode;
+    console.log(display);
+    display.style.width = "90px";
   }
 }
 
@@ -99,6 +119,7 @@ function Deck() {
             <input class="input-deck" type="hidden" value={element[1].number}></input>
             <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
             <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
+            <input class="hidden-submit" type="hidden"></input>
           </span>
           
         </form>
