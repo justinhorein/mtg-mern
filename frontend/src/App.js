@@ -53,6 +53,10 @@ const incrementDeck = (e) => {
   if (val < 4){
     num.value = val + 1;
   }
+
+  if (num.type == "hidden"){
+    num.type = "text";
+  }
 }
 
 const decrementDeck = (e) => {

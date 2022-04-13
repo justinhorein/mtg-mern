@@ -147,12 +147,12 @@ button.search {
 
 .arrow-up-deck {
   color: black;
-  transform: translate(2px, -6px) scale(.6);
+  transform: translate(2px, -6px) scale(.5);
 }
 
 .arrow-down-deck {
   color: black;
-  transform: translate(7px, -19px) scale(.6);
+  transform: translate(7px, -19px) scale(.5);
   
 }
 
@@ -176,5 +176,7 @@ button.search {
 } */
 
 .input-deck {
-  display: inline;
+  position: absolute;
+  width: 7px;
+  transform: translate(-12px, 4px);
 }
