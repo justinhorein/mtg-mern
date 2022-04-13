@@ -64,4 +64,8 @@ router.post('/add', function(req, res, next) {
   })
 })
 
+router.post('/update', function(req, res, next) {
+  console.log("upddattteeddd!")
+})
+
 module.exports = router;

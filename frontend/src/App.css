@@ -41,24 +41,6 @@ li .link {
 
 }
 
-.number-display {
-  position: absolute;
-  width: 30px;
-  font-size: 20px;
-  transform: translate(-340px, 450px);
-  z-index: 100;
-  color: black;
-  background-color: rgb(235, 233, 233);
-  border-radius: 5px;
-  padding: 0px 2px;
-  cursor: default;
-}
-
-.number-display:hover {
-  display: none;
-  cursor: default;
-}
-
 .heading {
   font-size: 32px;
   color: black;
@@ -153,12 +135,46 @@ button.search {
   justify-content: center;
 }
 
-.fa-arrow-up {
+.arrow-up-search {
   color: lightgrey;
   transform: translate(2px, 2px);
 }
 
-.fa-arrow-down {
+.arrow-down-search {
   color: lightgrey;
   transform: translate(-10px, 20px);
+}
+
+.arrow-up-deck {
+  color: black;
+  transform: translate(2px, -6px) scale(.6);
+}
+
+.arrow-down-deck {
+  color: black;
+  transform: translate(7px, -19px) scale(.6);
+  
+}
+
+.number-display {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  transform: translate(-340px, 450px);
+  z-index: 50;
+  color: black;
+  background-color: rgb(235, 233, 233);
+  border-radius: 5px;
+  padding: 0px 2px;
+  cursor: default;
+}
+
+/* .number-display:hover {
+  display: none;
+  cursor: default;
+} */
+
+.input-deck {
+  display: inline;
 }

@@ -16,6 +16,7 @@ function App() {
   
   return (
   <div className="App">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <Router>
 
     <ul>
@@ -42,8 +43,30 @@ const clearCards = () => {
   previous.forEach((one) => {
     one.remove();
   })
+}
 
-  // console.log("clear");
+const incrementDeck = (e) => {
+  // console.log("increment");
+  let num = e.target.parentNode.childNodes[1];
+  console.log(num.value);
+  let val = parseInt(num.value);
+  if (val < 4){
+    num.value = val + 1;
+  }
+}
+
+const decrementDeck = (e) => {
+  console.log("decrement")
+  let num = e.target.parentNode.childNodes[1];
+  console.log(num.value);
+  let val = parseInt(num.value);
+  if (val > 1){
+    num.value = val - 1;
+  }
+
+  if (num.type == "hidden"){
+    num.type = "text";
+  }
 }
 
 function Deck() {
@@ -66,10 +89,15 @@ function Deck() {
       <div class="heading">Deck</div>
 
       {cards.map((element) => (
-        <span class="card-display">
+        <form class="card-display" action="/update" method="POST">
           <img class="card" key={element[1].id} src={element[1].img}></img>
-          <span class="number-display"># {element[1].number}</span>
-        </span>
+          <span class="number-display">{element[1].number}
+            <input class="input-deck" type="hidden" value={element[1].number}></input>
+            <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
+            <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
+          </span>
+          
+        </form>
       ))
       }
     </div>
@@ -93,7 +121,6 @@ const decrement = () => {
     num.value = val - 1;
   }
 }
-
 
 const Search = () => {
   clearCards()
@@ -150,8 +177,8 @@ const Search = () => {
 
     let buttonBox = (
       <p class="button-box">
-        <i class="fa-solid fa-arrow-up" onClick={increment}></i>
-        <i class="fa-solid fa-arrow-down" onClick={decrement}></i>
+        <i class="fa-solid fa-arrow-up arrow-up-search" onClick={increment}></i>
+        <i class="fa-solid fa-arrow-down arrow-down-search" onClick={decrement}></i>
         <input type="text" className="card-number" value="1"></input>
         <button className="card-add" onClick={addCard}>add</button>
       </p>
