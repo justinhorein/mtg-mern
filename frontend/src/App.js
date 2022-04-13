@@ -51,7 +51,7 @@ const clearCards = () => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        alert(`Submitting Name ${props.element[1].img}`)
+        // alert(`Submitting Name ${props.element[1].img}`)
 
         const card = {
           img: props.element[1].img,
@@ -64,6 +64,8 @@ const clearCards = () => {
           .catch(err => {
             console.log(err);
           })
+
+          window.location.reload(false);
     }
 
     const incrementDeck = (e) => {
@@ -106,7 +108,7 @@ const clearCards = () => {
         num.value = val;
       }
     
-      if (val > 1){
+      if (val > 0){
         num.value = val - 1;
       }
     
