@@ -51,7 +51,19 @@ const clearCards = () => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        alert(`Submitting Name ${num}`)
+        alert(`Submitting Name ${props.element[1].img}`)
+
+        const card = {
+          img: props.element[1].img,
+          number: num
+        }
+
+        axios
+          .post('http://localhost:3000/update', card)
+          .then(() => console.log('update sent'))
+          .catch(err => {
+            console.log(err);
+          })
     }
 
     const incrementDeck = (e) => {
@@ -146,7 +158,7 @@ function Deck() {
       <div class="heading">Deck</div>
 
         {cards.map((element) => (
-            <UpdateForm element={element} key={element[1].id} />
+            <UpdateForm element={element} img={element[1].img} />
         ))
         }
     </div>
