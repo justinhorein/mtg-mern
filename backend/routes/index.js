@@ -66,6 +66,35 @@ router.post('/add', function(req, res, next) {
 
 router.post('/update', function(req, res, next) {
   console.log(req.body);
+  let card = {
+    img: req.body.img,
+    number: req.body.number
+  }
+
+  if (card.number <= 0) {
+    MongoClient.connect(url, (err, db) => {
+        if (err) throw err;
+        var dbo = db.db("cards");
+        dbo.collection("deck-node").deleteOne({img:card.img}, (err, res) => {
+            if (err) throw err;
+            console.log("1 Card Deleted");
+            db.close();
+        })
+    })
+  } 
+  else if (card.number <=4) {
+      MongoClient.connect(url, (err, db) => {
+          if (err) throw err;
+          var dbo = db.db("cards");
+          dbo.collection("deck-node").updateOne({img:card.img}, {$set: card}, { upsert: true}, (err, res) => {
+              if (err) throw err;
+              console.log("1 Card Updated");
+              db.close();
+          })
+      })
+  }
+
+  res.redirect("/");
 })
 
 module.exports = router;
