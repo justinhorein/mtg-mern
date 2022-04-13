@@ -56,6 +56,7 @@ const incrementDeck = (e) => {
 
   if (num.type == "hidden"){
     num.type = "text";
+    num.value = val;
   }
 
   let button = e.target.parentNode.lastChild;
@@ -80,6 +81,7 @@ const decrementDeck = (e) => {
 
   if (num.type == "hidden"){
     num.type = "text";
+    num.value = val;
   }
 
   let button = e.target.parentNode.lastChild;
@@ -91,6 +93,22 @@ const decrementDeck = (e) => {
     console.log(display);
     display.style.width = "90px";
   }
+}
+
+ const UpdateForm = (props) => {
+
+    return (
+      <form class="card-display" action="/update" method="POST">
+          <img class="card" key={props.element[1].id} src={props.element[1].img}></img>
+          <span class="number-display">{props.element[1].number}
+            <input class="input-deck" type="hidden" value={props.element[1].number}></input>
+            <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
+            <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
+            <input class="hidden-submit" type="hidden"></input>
+          </span>
+          
+        </form>
+    );
 }
 
 function Deck() {
@@ -112,21 +130,12 @@ function Deck() {
     <div>
       <div class="heading">Deck</div>
 
-      {cards.map((element) => (
-        <form class="card-display" action="/update" method="POST">
-          <img class="card" key={element[1].id} src={element[1].img}></img>
-          <span class="number-display">{element[1].number}
-            <input class="input-deck" type="hidden" value={element[1].number}></input>
-            <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
-            <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
-            <input class="hidden-submit" type="hidden"></input>
-          </span>
-          
-        </form>
-      ))
-      }
+        {cards.map((element) => (
+            <UpdateForm element={element} />
+        ))
+        }
     </div>
-  )
+  );
 }
 
 const increment = () => {
