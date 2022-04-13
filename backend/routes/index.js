@@ -62,6 +62,8 @@ router.post('/add', function(req, res, next) {
       db.close();
     })
   })
+
+  res.redirect("/deck");
 })
 
 router.post('/update', function(req, res, next) {
@@ -94,7 +96,7 @@ router.post('/update', function(req, res, next) {
       })
   }
 
-  res.redirect("/");
+  res.redirect("/deck");
 })
 
 module.exports = router;

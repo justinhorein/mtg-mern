@@ -83,7 +83,7 @@ const clearCards = () => {
         num.value = val + 1;
       }
     
-      console.log(num.value);
+      // console.log(num.value);
       setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
@@ -112,7 +112,7 @@ const clearCards = () => {
         num.value = val - 1;
       }
     
-      console.log(num.value);
+      // console.log(num.value);
       setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
@@ -177,7 +177,7 @@ const increment = () => {
 }
 
 const decrement = () => {
-  console.log("decrement")
+  // console.log("decrement")
   let num = document.querySelector(".card-number");
   let val = parseInt(num.value);
   if (val > 1){
