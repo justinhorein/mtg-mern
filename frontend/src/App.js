@@ -156,13 +156,15 @@ function Deck() {
   }, [])
 
   return (
-    <div>
+    <div class="deck">
       <div class="heading">Deck</div>
 
-        {cards.map((element) => (
-            <UpdateForm element={element} img={element[1].img} />
-        ))
-        }
+        <div class="card-mat">
+          {cards.map((element) => (
+              <UpdateForm element={element} img={element[1].img} />
+          ))
+          }
+        </div>
     </div>
   );
 }
@@ -305,7 +307,7 @@ const Search = () => {
   }
 
   return (
-    <div>
+    <div class="search">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       {/* <script src="https://use.fontawesome.com/78fabb6acb.js"></script> */}
       <div class="search-box">

@@ -2,6 +2,14 @@ html {
   padding: 0px;
 }
 
+:root {
+  --purple: rgb(167, 147, 255); 
+}
+
+body {
+  background-color: var(--purple);
+}
+
 .App {
   text-align: center;
 
@@ -31,20 +39,30 @@ li .link {
   text-decoration: none;
 }
 
+.deck {
+  margin-top: 0px;
+}
+
+.card-mat {
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 95%;
+}
+
 .card {
   width: 340px;
   margin: 10px;
 }
 
-.card-display {
-  display: inline-block;
-
-}
-
 .heading {
   font-size: 32px;
-  color: black;
-  margin: 10px;
+  color: white;
+  -webkit-text-stroke: .4px black;
+  padding: 10px 0px 15px 0px;
 }
 
 
@@ -52,16 +70,20 @@ li .link {
   font-size: 32px;
   color: white;
   -webkit-text-stroke: .4px black;
+  margin-top: 5px;
 }
 
 /* Search Page */
 
 .search-box {
+  display: inline-block;
   height: 150px;
   width: 500px;
   background-color: lightgrey;
   border-radius: 2px;
-  margin: 20px auto;
+  margin: auto;
+  transform: translateY(20px);
+  margin-bottom: 40px;
 }
 
 .search-input {
@@ -74,6 +96,8 @@ li .link {
 button.search {
   padding: 8px 10px;
   margin: 0px;
+  height: 40px;
+  background-color: rgb(18, 233, 36);
   font-size: 14px;
 }
 
@@ -127,12 +151,6 @@ button.search {
   border-radius: 2px;
   margin: 0px;
   transform: translate(-2px, 10px);
-}
-
-.card-mat {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .arrow-up-search {
