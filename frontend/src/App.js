@@ -59,7 +59,7 @@ const clearCards = () => {
         }
 
         axios
-          .post('http://localhost:3000/update', card)
+          .post('http://localhost:3001/update', card)
           .then(() => console.log('update sent'))
           .catch(err => {
             console.log(err);
@@ -156,16 +156,18 @@ function Deck() {
   }, [])
 
   return (
-    <div class="deck">
+    <>
       <div class="heading">Deck</div>
+      <div class="deck">
 
-        <div class="card-mat">
-          {cards.map((element) => (
-              <UpdateForm element={element} img={element[1].img} />
-          ))
-          }
-        </div>
-    </div>
+          <div class="card-mat">
+            {cards.map((element) => (
+                <UpdateForm element={element} img={element[1].img} />
+            ))
+            }
+          </div>
+      </div>
+    </>
   );
 }
 

@@ -60,15 +60,19 @@ li .link {
 
 .heading {
   font-size: 32px;
-  color: white;
+  color: black;
+  display:inline-block;
+  background-color: white;
   -webkit-text-stroke: .4px black;
-  padding: 10px 0px 15px 0px;
+  padding: 0px 3px;
+  border-radius: 1px;
+  margin: 10px 0px;
 }
 
 
 .heading2 {
   font-size: 32px;
-  color: white;
+  color: black;
   -webkit-text-stroke: .4px black;
   margin-top: 5px;
 }
