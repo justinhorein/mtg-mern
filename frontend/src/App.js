@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext, useContext } from 'react';
 import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -10,30 +10,31 @@ import {
 } from "react-router-dom";
 import * as reactDOM from 'react-dom';
 import ReactDOM from 'react-dom'
+import { useAppContext } from './context';
 // import nfetch from 'node-fetch';
 
 function App() {
-  
+
   return (
-  <div className="App">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <Router>
+      <div className="App">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <Router>
 
-    <ul>
-      <li>
-        <Link class="link" to="/">Deck</Link>
-      </li>
-      <li>
-        <Link class="link" to="/search" onClick={clearCards}>Search</Link>
-      </li>
-    </ul>
+        <ul>
+          <li>
+            <Link class="link" to="/">Deck</Link>
+          </li>
+          <li>
+            <Link class="link" to="/search" onClick={clearCards}>Search</Link>
+          </li>
+        </ul>
 
-      <Routes>
-        <Route path="/" element={<Deck/>}/>
-        <Route path="/search" element={<Search/>}/>
-      </Routes>
-    </Router>
-  </div>
+          <Routes>
+            <Route path="/" element={<Deck/>}/>
+            <Route path="/search" element={<Search/>}/>
+          </Routes>
+        </Router>
+      </div>
   );
 }
 
@@ -141,19 +142,15 @@ const clearCards = () => {
 }
 
 function Deck() {
-  const [cards, setCards] = useState([])
+
+  const {cards, fetchData} = useAppContext();
 
   useEffect(() => {
-    const fetchData = async () => {
-      let result = await axios("/deck");
-      let deck = result.data;
-      deck = Object.entries(deck);
-      // console.log(deck);
-      setCards(deck);
-    };
     
     fetchData();
   }, [])
+
+  // console.log("deck: " + cards);
 
   return (
     <>
