@@ -11,7 +11,6 @@ import {
 import * as reactDOM from 'react-dom';
 import ReactDOM from 'react-dom'
 import { useAppContext } from './context';
-// import nfetch from 'node-fetch';
 
 function App() {
 
@@ -52,7 +51,6 @@ const clearCards = () => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        // alert(`Submitting Name ${props.element[1].img}`)
 
         const card = {
           img: props.element[1].img,
@@ -70,7 +68,6 @@ const clearCards = () => {
     }
 
     const incrementDeck = (e) => {
-      // console.log("increment");
       let num = e.target.parentNode.childNodes[1];
       
       let val = parseInt(num.value);
@@ -84,7 +81,6 @@ const clearCards = () => {
         num.value = val + 1;
       }
     
-      // console.log(num.value);
       setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
@@ -113,7 +109,6 @@ const clearCards = () => {
         num.value = val - 1;
       }
     
-      // console.log(num.value);
       setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
@@ -135,26 +130,25 @@ const clearCards = () => {
             <i class="fa-solid fa-arrow-up arrow-up-deck" onClick={incrementDeck}></i>
             <i class="fa-solid fa-arrow-down arrow-down-deck" onClick={decrementDeck}></i>
             <input class="hidden-submit" type="hidden"></input>
-          </span>
-          
+          </span>        
         </form>
     );
 }
 
 function Deck() {
 
-  const {cards, fetchData} = useAppContext();
+  const {cards, fetchData, total } = useAppContext();
 
   useEffect(() => {
     
     fetchData();
   }, [])
-
-  // console.log("deck: " + cards);
-
+  
   return (
     <>
-      <div class="heading">Deck</div>
+      <div class="heading">
+        Deck - {total} cards
+      </div>
       <div class="deck">
 
           <div class="card-mat">
@@ -169,7 +163,6 @@ function Deck() {
 }
 
 const increment = () => {
-  // console.log("increment");
   let num = document.querySelector(".card-number");
   let val = parseInt(num.value);
   if (val < 4){
@@ -178,7 +171,6 @@ const increment = () => {
 }
 
 const decrement = () => {
-  // console.log("decrement")
   let num = document.querySelector(".card-number");
   let val = parseInt(num.value);
   if (val > 1){
@@ -216,8 +208,6 @@ const Search = () => {
       "img": image,
       "number": num
     }
-
-    // console.log(data);
 
     fetch('http://localhost:3001/add',{
       headers: {
@@ -276,16 +266,11 @@ const Search = () => {
           if (cards){
             cards.forEach((one) => {
               let image = one.image_uris.normal;
-              // console.log(image);
   
               // Card
               let card = document.createElement('img');
               card.src = image;
               card.className = "search-card";
-  
-              // let button = document.createElement('button');
-              // button.className = "card-add";
-              // button.innerText = "add";
               
               let container = document.createElement('span');
               container.className = "search-container";
@@ -293,14 +278,11 @@ const Search = () => {
               container.onmouseleave = removeButton;
               
               container.appendChild(card);
-              // container.appendChild(button);
               document.querySelector('.card-mat').append(container);
             })
           } else {
             alert("Couldn't find a card by that name!");
           }
-          
-
         })
       )
   }
@@ -318,9 +300,7 @@ const Search = () => {
 
       </div>
     </div>
-  )
-  
+  ) 
 }
-
 
 export default App;
