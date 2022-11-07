@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
-var url = "mongodb://localhost:27017";
+var url = "mongodb://127.0.0.1:27017";
 const { appendFile } = require('fs');
 
 
@@ -19,7 +19,7 @@ function getCards(db, callback) {
 /* GET home page. */
 router.get('/deck', function(req, res, next) {
 
-  MongoClient.connect("mongodb://localhost:27017", (err, db) => {
+  MongoClient.connect("mongodb://127.0.0.1:27017", (err, db) => {
     if (err) {
       console.log("error!");
     }
