@@ -52,10 +52,12 @@ const clearCards = () => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        const card = {
+        let card = {
           img: props.element[1].img,
           number: num
         }
+
+        console.log(card);
 
         axios
           .post('http://localhost:3001/update', card)
@@ -78,10 +80,10 @@ const clearCards = () => {
       }
     
       if (val < 4){
-        num.value = val + 1;
+        setNum(val + 1);
+      } else {
+        setNum(val);
       }
-    
-      setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
     
@@ -89,15 +91,16 @@ const clearCards = () => {
         button.type = "submit";
         button.value = "Update";
         let display = e.target.parentNode;
-        console.log(display);
+        // console.log(display);
         display.style.width = "90px";
       }
     }
     
     const decrementDeck = (e) => {
-      console.log("decrement")
-      let num = e.target.parentNode.childNodes[1];
       
+      let num = e.target.parentNode.childNodes[1];
+      console.log(num);
+
       let val = parseInt(num.value);
     
       if (num.style.display != "inline"){
@@ -106,10 +109,10 @@ const clearCards = () => {
       }
     
       if (val > 0){
-        num.value = val - 1;
+        setNum(val - 1);
+      } else {
+        setNum(val);
       }
-    
-      setNum(num.value)
     
       let button = e.target.parentNode.lastChild;
     
@@ -117,7 +120,7 @@ const clearCards = () => {
         button.type = "submit";
         button.value = "Update";
         let display = e.target.parentNode;
-        console.log(display);
+        // console.log(display);
         display.style.width = "90px";
       }
     }
@@ -220,6 +223,7 @@ const Search = () => {
     })
 
     navigate("/");
+    window.location.reload(true);
   };
 
   const addButton = (e) => {

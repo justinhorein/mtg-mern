@@ -34,10 +34,6 @@ router.get('/deck', function(req, res, next) {
       )
     })
   })
-
-  // res.json(
-  //   "deck"
-  // )
 });
 
 router.post('/add', function(req, res, next) {
