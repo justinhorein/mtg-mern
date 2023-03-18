@@ -59,14 +59,21 @@ const clearCards = () => {
 
         console.log(card);
 
+        let axiosConfig = {
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+          }
+        };
+
         axios
-          .post('http://localhost:3001/update', card)
+          .post('http://localhost:3001/update', card, axiosConfig)
           .then(() => console.log('update sent'))
           .catch(err => {
             console.log(err);
           })
 
-          window.location.reload(false);
+          window.location.reload(true);
     }
 
     const incrementDeck = (e) => {
@@ -212,19 +219,23 @@ const Search = () => {
       "number": num
     }
 
-    fetch('http://localhost:3001/add',{
+    let axiosConfig = {
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'mode': 'no-cors'
-      },
-      method: "POST",
-      body: JSON.stringify(data)
-    })
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+      }
+    };
 
-    navigate("/");
-    window.location.reload(true);
-  };
+    axios
+      .post('http://localhost:3001/add', data, axiosConfig)
+      .then(() => console.log('update sent'))
+      .catch(err => {
+        console.log(err);
+      })
+
+      navigate("/");
+      window.location.reload(true);
+    };
 
   const addButton = (e) => {
       

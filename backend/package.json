@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www --ignore client"
+    "start": "nodemon ./bin/www --ignore client"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
